@@ -12,5 +12,20 @@
       "extensions": [".js", ".jsx", ".ts", ".tsx"],
       "root": ["./src"]
     }]
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": [[
+        "@babel/env", {
+          "modules": "commonjs",
+          "targets": {
+            "node": "current"
+          }
+        }],
+        "@babel/stage-3",
+        "@babel/react",
+        "@babel/typescript"
+      ],
+    }
+  }
 }
