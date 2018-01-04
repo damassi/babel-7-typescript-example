@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom/server'
+import ReactDOM from 'react-dom'
 import React from 'react'
 import { App } from './components/App'
 
@@ -14,13 +14,12 @@ type Foo = {
 }
 
 const props: Foo = {
-  name: 'hi',
+  name: 'world',
   foo: () => 'hi',
   bar: () => 2
 }
 
-const reactOutput = ReactDOM.renderToString(<App {...props} />)
-console.log(reactOutput)
+ReactDOM.render(<App {...props} />, document.body.appendChild(document.createElement('div')))
 
 export const test = {
   isJestWorking: true

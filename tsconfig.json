@@ -6,6 +6,7 @@
     "rootDir": "./",
     "jsx": "react",
     "module": "es2015",
+    "target": "es2016",
     "noEmit": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

@@ -1,6 +1,8 @@
 {
-  "presets": [
-    "@babel/env",
+  "presets": [[
+    "@babel/env", {
+      "modules": false
+    }],
     "@babel/stage-3",
     "@babel/react",
     "@babel/typescript"
