@@ -26,6 +26,9 @@
         "@babel/react",
         "@babel/typescript"
       ],
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
     }
   }
 }
