@@ -2,20 +2,27 @@
   "name": "babel-7-typescript-example",
   "version": "1.0.0",
   "description": "Example TypeScript project built on top of new Babel 7 features",
-  "keywords": ["babel", "babel 7", "typescript", "react", "example"],
+  "keywords": [
+    "babel",
+    "babel 7",
+    "typescript",
+    "react",
+    "example"
+  ],
   "main": "./dist/index.js",
   "repository": "git@github.com:damassi/babel-7-typescript-example.git",
   "author": "Christopher Pappas <damassi.pappas@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "yarn clean:build && babel src --ignore src/**/__tests__ --out-dir dist --extensions '.ts,.tsx'",
-    "clean:build": "rm -rf dist",
-    "coverage": "jest --coverage",
+    "prebuild": "yarn clean",
+    "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.js --progress --profile --color --display-error-details --display-cached",
+    "clean": "rimraf dist .cache-loader",
+    "coverage": "cross-env NODE_ENV=test jest --coverage",
     "prepublishOnly": "yarn build",
-    "start": "babel-node --extensions '.ts,.tsx' index.ts",
-    "test": "jest",
-    "test:watch": "jest -o --watch",
-    "typecheck": "tsc"
+    "start": "cross-env NODE_ENV=development webpack-dev-server",
+    "test": "cross-env NODE_ENV=test jest",
+    "test:watch": "yarn test -o --watch",
+    "lint": "tslint \"src/**/*.ts\""
   },
   "jest": {
     "setupFiles": [
@@ -50,19 +57,36 @@
     "@types/jest": "^21.1.8",
     "@types/react": "^16.0.25",
     "@types/react-dom": "^16.0.3",
+    "babel-loader": "8.0.0-beta.0",
     "babel-plugin-module-resolver": "^3.0.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "cache-loader": "^1.2.0",
+    "cross-env": "^5.1.3",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
+    "fork-ts-checker-notifier-webpack-plugin": "^0.2.0",
+    "fork-ts-checker-webpack-plugin": "^0.2.10",
+    "html-webpack-plugin": "^2.30.1",
     "jest": "21.3.0-beta.9",
     "nodemon": "^1.12.1",
+    "rimraf": "^2.6.2",
+    "thread-loader": "^1.1.2",
     "tslint": "^5.8.0",
     "tslint-config-standard": "^7.0.0",
     "tslint-react": "^3.2.0",
     "typescript": "^2.6.1",
-    "typescript-babel-jest": "^1.0.5"
+    "typescript-babel-jest": "^1.0.5",
+    "uglifyjs-webpack-plugin": "^1.1.5",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7",
+    "webpack-fail-plugin": "^2.0.0"
   },
   "dependencies": {
     "react": "^16.1.1",
     "react-dom": "^16.1.1"
-  }
+  },
+  "browserslist": [
+    "last 1 Chrome versions",
+    "last 1 Firefox versions"
+  ]
 }

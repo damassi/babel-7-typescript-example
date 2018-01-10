@@ -1,9 +1,8 @@
 {
-  "presets": [
-    ["@babel/env", {
-      "targets": {
-        "browsers": ["last 2 versions"]
-      }
+  "presets": [[
+    "@babel/env", {
+      "modules": false,
+      "debug": true
     }],
     "@babel/stage-3",
     "@babel/react",
@@ -14,5 +13,23 @@
       "extensions": [".js", ".jsx", ".ts", ".tsx"],
       "root": ["./src"]
     }]
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": [[
+        "@babel/env", {
+          "modules": "commonjs",
+          "targets": {
+            "node": "current"
+          }
+        }],
+        "@babel/stage-3",
+        "@babel/react",
+        "@babel/typescript"
+      ],
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  }
 }
