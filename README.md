@@ -14,6 +14,8 @@ yarn test:watch
 yarn typecheck
 ```
 
+**For a more complete example that uses Webpack see [this fork](https://github.com/emakina-cee-oss/babel-7-typescript-example/tree/webpack-support) -- thanks @flobacher.**
+
 If using VSCode, make sure to install the recommended extensions.
 
 ## Example
