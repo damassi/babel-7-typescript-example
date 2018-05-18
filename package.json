@@ -2,7 +2,13 @@
   "name": "babel-7-typescript-example",
   "version": "1.0.0",
   "description": "Example TypeScript project built on top of new Babel 7 features",
-  "keywords": ["babel", "babel 7", "typescript", "react", "example"],
+  "keywords": [
+    "babel",
+    "babel 7",
+    "typescript",
+    "react",
+    "example"
+  ],
   "main": "./dist/index.js",
   "repository": "git@github.com:damassi/babel-7-typescript-example.git",
   "author": "Christopher Pappas <damassi.pappas@gmail.com>",
@@ -32,7 +38,7 @@
       "jsx"
     ],
     "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "typescript-babel-jest"
+      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
     }
   },
   "resolutions": {
@@ -50,6 +56,7 @@
     "@types/jest": "^21.1.8",
     "@types/react": "^16.0.25",
     "@types/react-dom": "^16.0.3",
+    "babel-jest": "^22.4.4",
     "babel-plugin-module-resolver": "^3.0.0",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
@@ -58,8 +65,7 @@
     "tslint": "^5.8.0",
     "tslint-config-standard": "^7.0.0",
     "tslint-react": "^3.2.0",
-    "typescript": "^2.6.1",
-    "typescript-babel-jest": "^1.0.5"
+    "typescript": "^2.6.1"
   },
   "dependencies": {
     "react": "^16.1.1",
